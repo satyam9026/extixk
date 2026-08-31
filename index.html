@@ -3,336 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivi ad™ - Telegram Channel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: #08090a;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px 12px;
-            overflow-x: hidden;
-        }
-
-        /* Subtle background glow effect */
-        .bg-glow {
-            position: fixed;
-            top: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 136, 204, 0.18) 0%, rgba(0, 0, 0, 0) 70%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .page-container {
-            width: 100%;
-            max-width: 480px;
-            background: rgba(18, 20, 24, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(16px);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        }
-
-        /* Hero Banner */
-        .hero-banner {
-            background: linear-gradient(180deg, rgba(20, 24, 33, 1) 0%, rgba(14, 16, 22, 1) 100%);
-            padding: 28px 24px 20px 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-        }
-
-        .hero-top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .channel-label {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #229ED9;
-            font-weight: 700;
-            background: rgba(34, 158, 217, 0.1);
-            padding: 4px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(34, 158, 217, 0.2);
-        }
-
-        .telegram-icon-top {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .telegram-icon-top svg {
-            width: 16px;
-            height: 16px;
-            fill: #229ED9;
-        }
-
-        .profile-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .profile-pic-container {
-            position: relative;
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            padding: 3px;
-            background: linear-gradient(135deg, #229ED9, #0088cc, #005580);
-            box-shadow: 0 8px 24px rgba(34, 158, 217, 0.3);
-        }
-
-        .profile-pic-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            background-color: #1a1a1a;
-        }
-
-        .online-dot {
-            position: absolute;
-            bottom: 4px;
-            right: 4px;
-            width: 14px;
-            height: 14px;
-            background-color: #22c55e;
-            border: 2px solid #0e1016;
-            border-radius: 50%;
-        }
-
-        .profile-titles h1 {
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -0.3px;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-
-        .trademark {
-            font-size: 11px;
-            letter-spacing: 1px;
-            color: #8a8f99;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* Main Body */
-        .main-body {
-            padding: 24px;
-        }
-
-        .status-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: rgba(34, 197, 94, 0.08);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #4ade80;
-            margin: 0 auto 24px auto;
-            width: fit-content;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #22c55e;
-            border-radius: 50%;
-            box-shadow: 0 0 8px #22c55e;
-        }
-
-        .section-title {
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: #6b7280;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        /* Glance Grid */
-        .glance-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-
-        .glance-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 14px;
-            padding: 14px 8px;
-            text-align: center;
-        }
-
-        .glance-card .title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-
-        .glance-card .subtitle {
-            font-size: 10px;
-            letter-spacing: 0.5px;
-            color: #9ca3af;
-            text-transform: uppercase;
-            margin-top: 2px;
-            font-weight: 500;
-        }
-
-        .glance-card .free-text {
-            font-size: 16px;
-            font-weight: 700;
-            color: #4ade80;
-        }
-
-        /* Features List */
-        .features-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-bottom: 24px;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 14px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .feature-icon {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .feature-icon svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .feature-text h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ffffff;
-        }
-
-        .feature-text p {
-            font-size: 12px;
-            color: #8a8f99;
-            margin-top: 2px;
-        }
-
-        /* Connect Button */
-        .connect-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #229ED9 0%, #0088cc 100%);
-            color: #ffffff;
-            border: none;
-            border-radius: 14px;
-            padding: 16px;
-            font-family: inherit;
-            font-size: 15px;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0, 136, 204, 0.35);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            margin-bottom: 20px;
-        }
-
-        .connect-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 10px 24px rgba(0, 136, 204, 0.45);
-        }
-
-        .connect-btn svg {
-            width: 18px;
-            height: 18px;
-            fill: #ffffff;
-        }
-
-        /* Footer Meta */
-        .footer-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 11px;
-            color: #6b7280;
-            padding: 0 4px;
-            margin-bottom: 20px;
-        }
-
-        .active-members {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .active-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #22c55e;
-            border-radius: 50%;
-        }
-
-        .copyright {
-            text-align: center;
-            font-size: 10px;
-            color: #4b5563;
-        }
-    </style>
 
 <!-- Meta Pixel Code -->
 <script>
@@ -351,106 +21,264 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=1572950567568198&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shivi ad™ | Free Telegram Channel</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 18px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: auto;
+      background: #1a2235;
+      border: 1px solid #303a50;
+      border-radius: 28px;
+      padding: 48px 28px 35px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+      text-align: center;
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #fff;
+      border: 3px solid #ffd900;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      color: #ffd900;
+      font-size: 36px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .category {
+      font-size: 25px;
+      font-weight: 700;
+      color: #f1f1f1;
+      margin-bottom: 28px;
+    }
+
+    .subtitle {
+      color: #c9ccd5;
+      font-size: 21px;
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    .join-btn {
+      display: block;
+      width: 100%;
+      background: #20c85a;
+      color: #000;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 800;
+      padding: 25px 15px;
+      border-radius: 16px;
+      margin: 18px 0;
+      transition: 0.2s;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.02);
+      background: #26d965;
+    }
+
+    .trust-box {
+      background: #153a43;
+      border: 1px solid #17656c;
+      border-radius: 17px;
+      padding: 22px 15px;
+      margin: 20px 0 28px;
+      color: #f3f3f3;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .features {
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .feature {
+      font-size: 21px;
+      color: #f4f4f4;
+      margin: 22px 0;
+      line-height: 1.4;
+    }
+
+    .closing {
+      color: #ffd900;
+      font-size: 20px;
+      margin-top: 25px;
+    }
+
+    .community {
+      color: #bfc3cc;
+      font-size: 18px;
+      margin-top: 27px;
+    }
+
+    .risk {
+      color: #9da3af;
+      font-size: 16px;
+      margin-top: 25px;
+    }
+
+    .powered {
+      margin-top: 42px;
+      color: #aeb3bd;
+      font-size: 19px;
+    }
+
+    .powered a {
+      color: #2185bd;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 52px 16px 30px;
+        border-radius: 25px;
+      }
+
+      .logo {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .category {
+        font-size: 23px;
+      }
+
+      .subtitle {
+        font-size: 20px;
+      }
+
+      .join-btn {
+        font-size: 22px;
+        padding: 23px 10px;
+      }
+
+      .feature {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <div class="bg-glow"></div>
+  <div class="container">
 
-    <div class="page-container">
-        <div class="hero-banner">
-            <div class="hero-top-bar">
-                <span class="channel-label">Telegram Channel</span>
-                <div class="telegram-icon-top">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.36-1.77 4.85-1.78.11 0 .35.03.5.15.13.11.17.26.19.37.02.11.03.35.01.54z"/></svg>
-                </div>
-            </div>
+    <!-- LOGO -->
+    <img src="image.png" class="logo" alt="Zero To Hero Logo">
 
-            <div class="profile-wrapper">
-                <div class="profile-pic-container">
-                    <img src="image.png" alt="Deepak Wadhwa">
-                    <div class="online-dot"></div>
-                </div>
-                <div class="profile-titles">
-                    <h1>DEEPAK WADHWA</h1>
-                    <div class="trademark">OFFICIAL™</div>
-                </div>
-            </div>
-        </div>
+    <h1>DEEPAK WADHWA</h1>
 
-        <div class="main-body">
-            <div class="status-badge">
-                <div class="status-dot"></div>
-                Available · Free to Join
-            </div>
-
-            <div class="section-title">At a Glance</div>
-            <div class="glance-grid">
-                <div class="glance-card">
-                    <div class="title">Daily</div>
-                    <div class="subtitle">Tips</div>
-                </div>
-                <div class="glance-card">
-                    <div class="title">Live</div>
-                    <div class="subtitle">Alerts</div>
-                </div>
-                <div class="glance-card">
-                    <div class="free-text">Free</div>
-                    <div class="subtitle">Access</div>
-                </div>
-            </div>
-
-                      <a href="https://t.me/+d1DsHXVL5bgzMmI9" target="_blank" class="connect-btn" onclick="fbq('track', 'Lead'); fbq('trackCustom', 'Subscribe');">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.03-1.99 1.27-5.62 3.72-.53.36-1.01.54-1.44.53-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.35-.49.96-.75 3.78-1.65 6.31-2.74 7.58-3.27 3.61-1.51 4.36-1.77 4.85-1.78.11 0 .35.03.5.15.13.11.17.26.19.37.02.11.03.35.01.54z"/></svg>
-                Join Telegram Community
-            </a>
-            <div class="section-title">What You Get</div>
-            <div class="features-list">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Market Analysis</h3>
-                        <p>In-depth stats & Insights</p>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Live Alerts</h3>
-                        <p>Instant Telegram notifications</p>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
-                    </div>
-                    <div class="feature-text">
-                        <h3>Premium Strategy</h3>
-                        <p>Winning guidance & support</p>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="footer-meta">
-                <div class="active-members">
-                    <div class="active-dot"></div>
-                    Members active now
-                </div>
-                <div>Free forever</div>
-            </div>
-
-            <div class="copyright">
-                © 2026 Shivi ad ™ · Free channel
-            </div>
-        </div>
+    <div class="category">
+      NIFTY • BANKNIFTY • OPTIONS
     </div>
+
+    <div class="subtitle">
+      Daily Intraday Trading Signals &amp; Analysis
+    </div>
+
+    <!-- FIRST TELEGRAM BUTTON -->
+    <a
+      href="https://t.me/+d1DsHXVL5bgzMmI9"
+      class="join-btn"
+      target="_blank"
+      rel="noopener noreferrer">
+      🚀 Join Free Telegram Channel
+    </a>
+
+    <!-- TRUST BOX -->
+    <div class="trust-box">
+      ✓ Trusted by 5,000+ Traders<br>
+      ✓ Daily Consistent Setups
+    </div>
+
+    <!-- FEATURES -->
+    <div class="features">
+
+      <div class="feature">
+        ✓ 5–7 High Probability Trades
+      </div>
+
+      <div class="feature">
+        ✓ Exact Entry, SL &amp; Target
+      </div>
+
+      <div class="feature">
+        ✓ Beginner Friendly Guidance
+      </div>
+
+      <div class="feature">
+        ✓ Live Market Updates
+      </div>
+
+    </div>
+
+    <!-- SECOND TELEGRAM BUTTON -->
+    <a
+      href="https://t.me/+d1DsHXVL5bgzMmI9"
+      class="join-btn"
+      target="_blank"
+      rel="noopener noreferrer">
+      🚀 Join Free Telegram Channel
+    </a>
+
+    <div class="closing">
+      ⏳ Free Access Closing Soon
+    </div>
+
+    <div class="community">
+      📈 Limited Seats • Active Community
+    </div>
+
+    <div class="risk">
+      ⚠ Market investments are subject to risk
+    </div>
+
+    <div class="powered">
+      Powered by
+      <a href="https://t.me/+ahlminu0Ax4yYmFl"
+         target="_blank"
+         rel="noopener noreferrer">
+        Shivi ADS AGENCY
+      </a>
+    </div>
+
+  </div>
 
 </body>
 </html>
